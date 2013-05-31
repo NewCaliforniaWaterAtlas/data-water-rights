@@ -37,11 +37,21 @@ Contributors
 Work done as part of California Water Rights project, incubated by the Resource Renewal Institute http://rri.org with financial support from Patagonia. http://patagonia.com.
 
 If you are interested in helping to make water rights data better in California, please contact the New California Water Atlas at info@statewater.org.
+
+
+## Install Mongo Database
 --------------------------------------------------------------------------------
+@TODO Document
+
+## Export Mongo Database as CSV file
+--------------------------------------------------------------------------------
+@TODO Document
+
 ## How to obtain the original files
+--------------------------------------------------------------------------------
 
 ### eWRIMS data
-
+@TODO Document
 Steps:
 
 
