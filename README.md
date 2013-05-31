@@ -68,7 +68,7 @@ Current database is MongoDB:
 
 @TODO Document all of these fields and where they came from.
 @TODO Add a few different examples: individual, state water project, municipal project, farm
-
+```json
 {
         "id" : "C003105_01",
         "kind" : "right",
@@ -311,7 +311,7 @@ Current database is MongoDB:
         },
         "_id" : ObjectId("50f334c57ed9c041de0000dc")
 }
-
+```
 
 
 
