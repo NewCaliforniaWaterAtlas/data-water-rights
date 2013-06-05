@@ -41,11 +41,20 @@ If you are interested in helping to make water rights data better in California,
 
 ## Install Mongo Database
 --------------------------------------------------------------------------------
-@TODO Document
+
+-- Mongodump file located here:
+https://github.com/nerdsfornature/watertransfers/tree/master/data/dump/watertransfer
+This is the current MongoDB for the Water Rights interactive. It is a database of geoJSON objects for each water rights record.
+Data was obtained from eWRIMS (downloading thousands of records), as well as pulling data from the entire ArcGIS server that powers the eWRIMS map.
+We are currently working with the State Water Resource Control board to document and clarify understanding of this complex & legally specific dataset.
+
+@TODO Document how to import mongodump file into Mongo
+@TODO Make copy of database and move into this repository
 
 ## Export Mongo Database as CSV file
 --------------------------------------------------------------------------------
 @TODO Document
+@TODO Make list of all of the fields that could be exported (there are lots.)
 
 ## How to obtain the original files
 --------------------------------------------------------------------------------
