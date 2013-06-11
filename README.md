@@ -49,6 +49,8 @@ Data was obtained from eWRIMS (downloading thousands of records), as well as pul
 We are currently working with the State Water Resource Control board to document and clarify understanding of this complex & legally specific dataset.
 
 @TODO Document how to import mongodump file into Mongo
+... something like this:
+mongoexport -d watertransfer -c database -f properties.application_pod,properties.name,properties.water_right_type,properties.max_dd_ann,properties.diversion_acre_feet,properties.organization_type,properties.use_dd_annual,properties.use_dd_rate,properties.use_dd_rate_units,properties.pod_status,properties.diversion_storage_amount,properties.direct_div_amount,properties.latitude,properties.longitude,properties.face_value_amount,properties.water_right_status,properties.issue_date,properties.use_code,properties.year_first_use --csv --out /Users/chachasikes/htdocs/watertransfers/data/export/4_13_2013_a.csv 
 @TODO Make copy of database and move into this repository
 
 ## Export Mongo Database as CSV file
