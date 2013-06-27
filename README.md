@@ -130,8 +130,8 @@ Field Template:
 * Unique Identifiers
 * Basic Fields (Name, geographic location, face value amount, diversion type (storage, diversion))
 * Amounts of water (formats -* cfs, afy)
-* Holder information (billing)
-* Location information (watershed)
+* Holder information (address, etc)
+* Location information (watershed details, mostly from ArcGIS)
 * Relationship to other water rights (pod_id)
 * Dates (time of first use) -* how legal is that information? applied, received * revoked
 * @TODO timeframe? months of use
@@ -187,23 +187,110 @@ The SWRCB maintains a FAQ page: http://www.waterboards.ca.gov/waterrights/board_
 * How water is used
 * Can be multiple values per water rights application? (???)
 * Values:
-Stockwatering
-Irrigation
-Municipal
-Industrial
-(There are about 15 of these @TODO get the list)
 
+Stockwatering                                   10522
+Irrigation                                      9644
+Domestic                                        5472
+Fish and Wildlife Protection and/or Enhancement 2191
+Recreational                                    1391
+Fire Protection                                 1220
+Other                                           579
+Dust Control                                    541
+Power                                           505
+Municipal                                       361
+Frost Protection                                344
+Industrial                                      258
+Fish Culture                                    120
+Mining                                          89
+Heat Protection                                 65
+Incidental Power                                21
+Milling                                         15
+Snow Making                                     6
+(blank)                                         12178
+
+@TODO is this all of them?
+@TODO These need definitions… though they appear to be self-explanatory.
+@TODO Are the blank entries our mistake or is there not data?
 
 ### Water Rights Status
 This the the status of the water right in the state
-@TODO get the list
+Claimed                         15065
+Licensed                        12027
+Certified                       5286
+Inactive                        3433
+Permitted                       2337
+Revoked                         1562
+Cancelled                       997
+Pending                         977
+Registered                      696
+Claimed - Local Oversight       683
+State Filing                    183
+Active                          113
+Non Jurisdictional              105
+Rejected                        22
+Adjudicated                     20
+Closed                          13
+Temporary                       10
+Waste Water Change Order        1
+(blank)                         1992
+
+@TODO Need definitions
+@TODO Need to confirm which ones of these count towards actual water use in the state.
 
 ### Water Rights Type
-@TODO get the list
+Appropriative                 18564
+Statement of Div and Use      14628
+Stockpond                     5514
+Groundwater Recordation       3396
+Federal Filings               1973
+Small Domestic Reg            856
+Not Determined                185
+Livestock Stockpond           129
+No Right Required             109
+Temporary Permit              93
+Cert of Right - Power         37
+Pre-1914 Claim of Right       19
+Section 12 File               16
+Riparian Claim of Right       1
+Waste Water Change            1
+(blank)                       2
 
-----------------------------------------------------------
+@TODO These need definitions
 
-## Fields
+### Organization Type
+Individual                    16383
+Corporation                   15427
+Government (State/Municipal)  3905
+Federal Government            1835
+Trust                         1211
+Limited Liability Company     1131
+Organization/Association      790
+Limited Partner               200
+Partnership or Co-owners      122
+Estate                        22
+Joint Venture                 3
+Receivership/Fiduciary        3
+(blank)                       4490
+
+### POD Status
+Active                        39479
+Inactive                      3019
+Revoked                       1672
+Canceled                      1128
+Removed                       34
+(blank)                       191
+
+### Year first use
+1900's-2013
+@TODO Some values are incorrect (ex. 1040, 4897) Is this an artifact from the import?
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+** FIELDS **
+--------------------------------------------------------------------------------
+
+## Fields - Unique Identifiers
 
 ### id | ID
 * Description: Application POD ID, individual geographic location
@@ -211,28 +298,7 @@ This the the status of the water right in the state
 * Format: alphanumeric, with underscores {{ApplicationID}}_{{POD value}}
 * Examples: C003105_01, C003105_02
 
-### name | Name
-* Description: Name of the "Holder Name", who holds the water right. Might not be the same as the Primary Owner.
-* Definition: The name of the holder, a person, organization or other entity.
-* Format: string, alphanumeric
-* Examples: JOE  ALBERTA
-
-### face_value_amount | Face Value Amount
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### source | Source
-* Description: Web url of the source of the data record
-* Definition: Should point to the URL about the original dataset
-* Format: url
-* Examples: http://gispublic.waterboards.ca.gov/
-* Proposed Changes
-  * Change field name to "data_source"
-  * Add extra field pointing to page that describes the data conversion, example this github repository.
-
-### pod_id | Point of Diversion ID
+### properties.pod_id | Point of Diversion ID
 * Duplicate fields? * "pod_number" * some compiled data are the same. Which one is better?
 * Description: 
 * Definition: 
@@ -241,90 +307,73 @@ This the the status of the water right in the state
 * Notes: A water right (based on its Application ID) can have several geographic locations. These are usually built
 water diversions that lead to different locations, such as storage facilities or an agriculture field.
 
-### water_right_id | Water Right ID
+### properties.water_right_id | Water Right ID
 * Description: A value from the eWRIMS system
 * Definition: 
 * Format: 
 * Examples: 
 * Notes: This field is necessary for correctly looking up the urls to statements of diversions and water reports. In the Mongo DB there may be some mismatches due to the way information had to be retrieved.
 
-### "application_id" : Application ID
+### properties.application_id : Application ID
 * Description: The unique record id for one individual water right with a specific face value amount.
 * Definition: 
 * Format: 
 * Examples: "C003105"
 
-### "direct_div_amount" : "0.0",
+### "application_pod" : "C003105_01",
 * Description: 
 * Definition: 
 * Format: 
-* Examples: 
+* Examples:
 
-### "diversion_storage_amount" : "2.5",
+### "ewrims_db_id" : "13976",
 * Description: 
 * Definition: 
 * Format: 
-* Examples: 
+* Examples:
 
-### "diversion_acre_feet" : "0.0",
+### "appl_id" : "C003105",
 * Description: 
 * Definition: 
 * Format: 
 * Examples: 
+* Proposed change:
 
-### "place_id" : 663256,
+### "podid" : "3912",
 * Description: 
 * Definition: 
 * Format: 
 * Examples: 
+* Proposed change:
 
-### "pod_status" : "Active"
+### "permit_id" : "",
 * Description: 
 * Definition: 
 * Format: 
 * Examples: 
+* Proposed change:
 
-### "face_value_amount" : "0.0",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
 
-### "diversion_type" : "Direct Diversion",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
+--------------------------------------------------------------------------------
 
-### "diversion_code_type" : "Diversion point",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
+## Fields - Record ID
 
-### "water_right_type" : "Stockpond",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
+### kind | Kind
+* Description: NWCA MongoDB specific field for storing object record
+* Definition: A description of the kind of record, used in each record.
+* Format: string
+* Examples: "right"
+* Proposed change: "water_right"
 
-### "water_right_status" : "Certified",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
+--------------------------------------------------------------------------------
 
-### "storage_type" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
+## Fields - Metadata
 
-### "pod_unit" : "Gallons per Day",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
+### name | Name
+* Description: Name of the "Holder Name", who holds the water right. Might not be the same as the Primary Owner.
+* Definition: The name of the holder, a person, organization or other entity.
+* Format: string, alphanumeric
+* Examples: JOE  ALBERTA
 
 ### "first_name" : "JOE",
 * Description: 
@@ -344,173 +393,35 @@ water diversions that lead to different locations, such as storage facilities or
 * Format: 
 * Examples: 
 
-### "application_pod" : "C003105_01",
+### source | Source
+* Description: Web url of the source of the data record
+* Definition: Should point to the URL about the original dataset
+* Format: url
+* Examples: http://gispublic.waterboards.ca.gov/
+* Proposed Changes
+  * Change field name to "data_source" | Data Source
+  * Add extra field pointing to page that describes the data conversion, example this github repository.
+  * Merge with source_alt
+
+### "source_alt" : "http://ciwqs.waterboards.ca.gov/",
 * Description: 
 * Definition: 
 * Format: 
-* Examples:
+* Examples: 
+* Proposed Changes
+  * Make Data Source a multiple entry object.
 
-###  "range_direction" : "E",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "township_direction" : "S",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "range_number" : "21",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "section_number" : "8",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "section_classifier" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "quarter" : "SW",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### quarter_quarter" : "SE"
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "meridian" : "Mount Diablo",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "northing" : "1912401",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "easting" : "6793775",
+### "pod_status" : "Active"
 * Description: 
 * Definition: 
 * Format: 
 * Examples: 
 
-### "sp_zone" : "3",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "latitude" : 37.24426798,
+### "water_right_status" : "Certified",
 * Description: 
 * Definition: 
 * Format: 
 * Examples: 
-
-### "longitude" : -119.70260375,  
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "township_number" : "8",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "trib_desc" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "location_method" : "DD_NE",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "source_name" : "UNST",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "moveable" : "N",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "has_opod" : "N",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "watershed" : "AHWAHNEE",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "county" : "Madera",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "well_number" : "   ",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "quad_map_name" : "O'NEALS",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "quad_map_num" : "JJ023 ",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "quad_map_min_ser" : "7.5",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "parcel_number" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "special_area" : null,
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
 
 ### "last_update_user_id" : 9,
 * Description: 
@@ -529,12 +440,6 @@ water diversions that lead to different locations, such as storage facilities or
 * Definition: 
 * Format: 
 * Examples: 
-
-### "ewrims_db_id" : "13976",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
                 
 ### date_received" : ""
 * Description: 
@@ -547,12 +452,6 @@ water diversions that lead to different locations, such as storage facilities or
 * Definition: 
 * Format: 
 * Examples:
-
-### "source_alt" : "http://ciwqs.waterboards.ca.gov/",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
 
 ### "date_notice" : "",
 * Description: 
@@ -595,43 +494,6 @@ water diversions that lead to different locations, such as storage facilities or
 * Definition: 
 * Format: 
 * Examples:
-
-### "face_value_units" : "Acre-feet per Year",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "max_dd_appl" : "0.0",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "max_dd_units" : "Gallons per Day",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "max_dd_ann" : "0.0",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "max_storage" : "2.5",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "max_use_appl" : "0.0",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change: 
 
 ### "year_first_use" : "1968.0",
 * Description: 
@@ -788,6 +650,299 @@ water diversions that lead to different locations, such as storage facilities or
 * Examples: 
 * Proposed change:
 
+### "water_right_description" : ""
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+--------------------------------------------------------------------------------
+
+## Fields - Location Information
+
+### "place_id" : 663256,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "latitude" : 37.24426798,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "longitude" : -119.70260375,  
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+###  "range_direction" : "E",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "township_direction" : "S",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "range_number" : "21",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "section_number" : "8",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "section_classifier" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "quarter" : "SW",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### quarter_quarter" : "SE"
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "meridian" : "Mount Diablo",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "northing" : "1912401",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "easting" : "6793775",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "sp_zone" : "3",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "township_number" : "8",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "trib_desc" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "location_method" : "DD_NE",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "source_name" : "UNST",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "moveable" : "N",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "has_opod" : "N",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "watershed" : "AHWAHNEE",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "county" : "Madera",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "quad_map_name" : "O'NEALS",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "quad_map_num" : "JJ023 ",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "quad_map_min_ser" : "7.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "parcel_number" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "special_area" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+
+--------------------------------------------------------------------------------
+
+## Fields - Water Amounts & Physical Attributes
+
+### face_value_amount | Face Value Amount
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "direct_div_amount" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "diversion_storage_amount" : "2.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "diversion_acre_feet" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "diversion_type" : "Direct Diversion",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "diversion_code_type" : "Diversion point",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "water_right_type" : "Stockpond",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Values: 
+    Appropriative                 18564
+    Statement of Div and Use      14628
+    Stockpond                     5514
+    Groundwater Recordation       3396
+    Federal Filings               1973
+    Small Domestic Reg            856
+    Not Determined                185
+    Livestock Stockpond           129
+    No Right Required             109
+    Temporary Permit              93
+    Cert of Right - Power         37
+    Pre-1914 Claim of Right       19
+    Section 12 File               16
+    Riparian Claim of Right       1
+    Waste Water Change            1
+    (blank)                       2
+
+### "storage_type" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "pod_unit" : "Gallons per Day",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "well_number" : "   ",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "face_value_units" : "Acre-feet per Year",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "max_dd_appl" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "max_dd_units" : "Gallons per Day",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "max_dd_ann" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "max_storage" : "2.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "max_use_appl" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change: 
+
+
 ### "use_net_acreage" : "0.0",
 * Description: 
 * Definition: 
@@ -824,69 +979,6 @@ water diversions that lead to different locations, such as storage facilities or
 * Proposed change:
 
 ### "use_storage_amount" : "2.5",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "use_seasons" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "direct_div_season_begin_date" : null,
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "direct_div_season_end_date" : null,
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "direct_div_season_div_rate" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### direct_div_season_div_rate_units" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "direct_div_season_annual_amount" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "storage_season_begin_date" : null,
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "storage_season_end_date" : null,
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "storage_season_amount" : "2.5",
 * Description: 
 * Definition: 
 * Format: 
@@ -942,33 +1034,9 @@ water diversions that lead to different locations, such as storage facilities or
 * Examples: 
 * Proposed change:
 
-### "appl_id" : "C003105",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
+--------------------------------------------------------------------------------
 
-### "podid" : "3912",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "permit_id" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "water_right_description" : ""
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
+## Fields - Permits / Licenses / Seasonal Use
 
 ### "issue_date" : "1979-03-26",
 * Description: 
@@ -1005,6 +1073,74 @@ water diversions that lead to different locations, such as storage facilities or
 * Examples: 
 * Proposed change:
 
+### "direct_div_season_div_rate" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "storage_season_amount" : "2.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "direct_div_season_annual_amount" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "storage_season_begin_date" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "storage_season_end_date" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+
+### "use_seasons" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "direct_div_season_begin_date" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "direct_div_season_end_date" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### direct_div_season_div_rate_units" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+--------------------------------------------------------------------------------
+
+## Fields - Unknown
+
 ### "version_number" : "2.0"
 * Description: 
 * Definition: 
@@ -1012,12 +1148,18 @@ water diversions that lead to different locations, such as storage facilities or
 * Examples: 
 * Proposed change:
 
-### kind | Kind
-* Description: NWCA MongoDB specific field for storing object record
-* Definition: A description of the kind of record, used in each record.
-* Format: string
-* Examples: "right"
-* Proposed change: "water_right"
+--------------------------------------------------------------------------------
+** END of FIELDS ** 
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 ## Install Mongo Database
