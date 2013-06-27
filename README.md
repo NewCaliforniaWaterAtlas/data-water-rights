@@ -1019,7 +1019,9 @@ water diversions that lead to different locations, such as storage facilities or
 
 ## Install Mongo Database
 --------------------------------------------------------------------------------
-Mongodump file located here: /data/dump/watertransfer
+Mongodump file located here: 
+https://github.com/NewCaliforniaWaterAtlas/watertransfers/tree/master/data/dump/watertransfer
+
 
 This is the current MongoDB for the Water Rights interactive. 
 * It is a database of geoJSON objects for each water rights record.
@@ -1041,7 +1043,7 @@ This is the current MongoDB for the Water Rights interactive.
 --------------------------------------------------------------------------------
 @TODO Document this better.
 In general, the command is something like this:
-mongoexport -d watertransfer -c database -f properties.application_pod,properties.name,properties.water_right_type,properties.max_dd_ann,properties.diversion_acre_feet,properties.organization_type,properties.use_dd_annual,properties.use_dd_rate,properties.use_dd_rate_units,properties.pod_status,properties.diversion_storage_amount,properties.direct_div_amount,properties.latitude,properties.longitude,properties.face_value_amount,properties.water_right_status,properties.issue_date,properties.use_code,properties.year_first_use --csv --out /Users/chachasikes/htdocs/watertransfers/data/export/4_13_2013_a.csv 
+mongoexport -d watertransfer -c database -f properties.application_pod,properties.name,properties.water_right_type,properties.max_dd_ann,properties.diversion_acre_feet,properties.organization_type,properties.use_dd_annual,properties.use_dd_rate,properties.use_dd_rate_units,properties.pod_status,properties.diversion_storage_amount,properties.direct_div_amount,properties.latitude,properties.longitude,properties.face_value_amount,properties.water_right_status,properties.issue_date,properties.use_code,properties.year_first_use --csv --out /Users/username/htdocs/folder/data/export/4_13_2013_a.csv 
 
 @TODO Make list of all of the fields that could be exported (there are lots.)
 
