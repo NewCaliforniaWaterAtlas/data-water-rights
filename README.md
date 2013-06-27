@@ -293,7 +293,7 @@ Removed                       34
 ## Fields - Unique Identifiers
 
 ### id | ID
-* Description: Application POD ID, individual geographic location
+* Description:  NWCA Field Addition. Application POD ID, individual geographic location
 * Definition: This is the location of a point of diversion. Could be one of several PODs.
 * Format: alphanumeric, with underscores {{ApplicationID}}_{{POD value}}
 * Examples: C003105_01, C003105_02
@@ -375,6 +375,38 @@ water diversions that lead to different locations, such as storage facilities or
 * Format: string, alphanumeric
 * Examples: JOE  ALBERTA
 
+### "use_code" : "Stockwatering",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "organization_type" : "Individual",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "pod_status" : "Active"
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Notes: This is from ArcGIS
+
+### "status" : "Certified",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "water_right_status" : "Certified",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
 ### "first_name" : "JOE",
 * Description: 
 * Definition: 
@@ -387,41 +419,31 @@ water diversions that lead to different locations, such as storage facilities or
 * Format: 
 * Examples: 
 
-### "organization_type" : "Individual",
+### "primary_owner" : "JOE  ALBERTA",
 * Description: 
 * Definition: 
 * Format: 
 * Examples: 
 
-### source | Source
-* Description: Web url of the source of the data record
-* Definition: Should point to the URL about the original dataset
-* Format: url
-* Examples: http://gispublic.waterboards.ca.gov/
-* Proposed Changes
-  * Change field name to "data_source" | Data Source
-  * Add extra field pointing to page that describes the data conversion, example this github repository.
-  * Merge with source_alt
+### "primary_owner_entity_type" : "Individual",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
 
-### "source_alt" : "http://ciwqs.waterboards.ca.gov/",
+### "entity_type" : "Individual",
 * Description: 
 * Definition: 
 * Format: 
 * Examples: 
-* Proposed Changes
-  * Make Data Source a multiple entry object.
+* Proposed change:
 
-### "pod_status" : "Active"
+###  "name_type" : "Primary Owner",
 * Description: 
 * Definition: 
 * Format: 
 * Examples: 
-
-### "water_right_status" : "Certified",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
+* Proposed change:
 
 ### "last_update_user_id" : 9,
 * Description: 
@@ -430,42 +452,6 @@ water diversions that lead to different locations, such as storage facilities or
 * Examples: 
 
 ### "date_last_updated" : 1191046438000,
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "status" : "Certified",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-                
-### date_received" : ""
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "date_accepted" : "01/06/1978",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "date_notice" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "protest" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "number_protests" : "0",
 * Description: 
 * Definition: 
 * Format: 
@@ -482,53 +468,6 @@ water diversions that lead to different locations, such as storage facilities or
 * Definition: 
 * Format: 
 * Examples:
-
-### "primary_owner" : "JOE  ALBERTA",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-
-### "primary_owner_entity_type" : "Individual",
-* Description: 
-* Definition: 
-* Format: 
-* Examples:
-
-### "year_first_use" : "1968.0",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "effective_from_date" : "09/15/1994",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "effective_to_date" : "",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-### "entity_type" : "Individual",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
-###  "name_type" : "Primary Owner",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
 
 ### "mailing_street_number" : null,
 * Description: 
@@ -629,13 +568,6 @@ water diversions that lead to different locations, such as storage facilities or
 * Examples: 
 * Proposed change:
 
-### "use_code" : "Stockwatering",
-* Description: 
-* Definition: 
-* Format: 
-* Examples: 
-* Proposed change:
-
 ### "use_status_new" : "Migrated from old WRIMS data",
 * Description: 
 * Definition: 
@@ -656,6 +588,25 @@ water diversions that lead to different locations, such as storage facilities or
 * Format: 
 * Examples: 
 * Proposed change:
+
+### source | Source
+* Description: NWCA Field Addition Web url of the source of the data record
+* Definition: Should point to the URL about the original dataset
+* Format: url
+* Examples: http://gispublic.waterboards.ca.gov/
+* Proposed Changes
+  * Change field name to "data_source" | Data Source
+  * Add extra field pointing to page that describes the data conversion, example this github repository.
+  * Merge with source_alt
+
+### "source_alt" : "http://ciwqs.waterboards.ca.gov/",
+* Description: NWCA Field Addition
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed Changes
+  * Make Data Source a multiple entry object.
+
 
 --------------------------------------------------------------------------------
 
@@ -1038,6 +989,58 @@ water diversions that lead to different locations, such as storage facilities or
 
 ## Fields - Permits / Licenses / Seasonal Use
 
+                
+### date_received" : ""
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "date_accepted" : "01/06/1978",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "date_notice" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "protest" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "number_protests" : "0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "year_first_use" : "1968.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "effective_from_date" : "09/15/1994",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "effective_to_date" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
 ### "issue_date" : "1979-03-26",
 * Description: 
 * Definition: 
@@ -1107,7 +1110,6 @@ water diversions that lead to different locations, such as storage facilities or
 * Format: 
 * Examples: 
 * Proposed change:
-
 
 ### "use_seasons" : "",
 * Description: 
