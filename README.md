@@ -1,84 +1,1053 @@
-# New California Water Atlas: Data - Water Rights
+# California Water Rights Dataset - Version 0.0.5
 --------------------------------------------------------------------------------
 
-(DRAFT)
-
-##About this repository
-
-Improved water rights data for California.
-- Using eWWRIMS data from State Water Resource Control Board
-
-How we are improving the data:
-- Seeking real time data
-- Documenting the various fields in partnership with the State Water Resource Control Board
-- Attempting to get dataset into data.ca.gov
-
-@TODO Add data set, finish documenting this
+THIS IS A WORK IN PROGRESS. We will note when this document is final. 6/27/2013 -- chach sikes
 
 --------------------------------------------------------------------------------
-New California Water Atlas
-Making Water Understandable in California
+
+The State Water Resource Control board maintains a dataset of water rights, statements of diversions and permits for water usages in the state of California. This includes appropriative, some riparian rights, some groundwater recordations (probably mostly in adjudicated basins), and possibly some listings of some tribal water rights. As you might expect, this does not include illegal diversions.
+
+We are working to create a dataset that is developer-friendly, accurate, up-to-date and well-documented. We believe this will help to speed communication and promote clarity and innovation about water usage in the State. We began in December 2012, and are doing more improvements in Summer 2013. Please watch this Github repository for updates. We would like to have a great & re-usable dataset worked out by January 2014.
+
+--------------------------------------------------------------------------------
+
+## Details & Stats about the Water Rights Dataset
+
+### Computer systems used by the State of California
+The state uses the eWRIMS system (a custom built CMS) and also an ArcGIS server to maintain geographic information.
+eWRIMS:
+ARCGIS server:
+
+#### Number of Water Right Applications and Records
+About 50K
+
+#### Approximate number of active water rights in California (2013)
+* 5000?
+
+#### Number of Statements of Diversion
+* About 40K records total. 
+* Statements of Diversion have been required by law since 2009.
+* A water right holder can submit several yearly reports
+* Number SOD records not digitized yet by the SWRCB: 6000 (mostly for 2012?)
+
+#### Frequency of updates
+Weekly, about 10-100 records per year.  (Question is this about right? Seasons?)
+
+#### Comprehensiveness of the dataset
+This is all of the digitized data that the State has 
+
+#### Accuracy
+The State strives to be comprehensive.
+
+We are also striving to mirror the State's dataset and eventually get the state to host data for all of us. If you have legal questions about water rights, please refer to the State's system and not us, we are providing this information as a convenience and for exploring new opportunities in communicating about water rights.
+
+As a State, we have passed laws that require water rights holder to report their usage, and in come cases failure to report requires that water rights holders pay fines. These fines go to supporting the SWRCB (???), ___ including efforts to maintain datasets (???) Trained staff help water rights holders fill in information about their water right, which includes information from various water meters, in some cases a watermaster physically unlocks a diversion, the location of points of diversion is required to be surveyed, information about water conservation is reported. 
+
+Water rights range from small domestic water rights to full scale water rights holdings by municipalities that supply a city with water, or water districts that supply a group of farmers with water. As such, the larger water rights holders usually have lawyers to help them fill in details, and the smaller holding are a little bit less precise, but not always.
+
+When there is not a recording or a diversion is illegal there is, as you might expect, no data.
+
+--------------------------------------------------------------------------------
+
+#### How we are improving the data:
+* Seeking real time data stream, or at least a quarterly updated dataset.
+* Documenting the various fields in partnership with the State Water Resource Control Board
+* Attempting to get dataset into data.ca.gov
+
+### How to Download the data
+We are working on a MongoDB database in geoJSON format that can be readily downloaded by developers, and are working to document the fields in the dataset, since water rights are complex and there is significant legal meanings.
+
+### Updates
+We would like to update the dataset at least twice per year, and eventually monthly or to have a real-time updated dataset available on http://data.ca.gov. 
+
+### How we are working
+As a small community of water-interested computer programmers, we are working to recommend what we need to known and access in order to use the valuable water rights data. 
+
+### Github
+To collaborate, we are putting the documentation, data & processing tools into Github, a public & social place where programmers collaborate on code or data projects. 
+* http://github.com/NewCaliforniaWaterAtlas/data-water-rights
+
+
+--------------------------------------------------------------------------------
+
+#### Workgroup / Team
+
+* Chacha Sikes (New California Water Atlas)
+* Ted Grantham (UC Davis Department of Watershed Sciences)
+* Phil Crader (State Water Resources Control Board) -- advising us and answering our questions, helping us make sure this information is accurate.
+* Laci Videmsky (New California Water Atlas)
+
+* If you are interested in helping to make water rights data better in California, please contact the New California Water Atlas at info@statewater.org. 
+* We are also thinking about starting a Code for America Brigade for California State Water or other Natural Resources.
+* Blog and file sharing: http://ca.statewater.org/water-rights
+
+#### Sponsors
+New California Water Atlas: Making Water Understandable in California
 http://ca.statewater.org  @CAStateWater
-
-California Water Rights interactive
-http://ca.statewater.org/water-rights
-Launched April 2013. Update planned for August 2013.
-
-Water Rights Workgroup on New California Water Atlas website:
-http://ca.statewater.org/water-rights  (currently: http://live-ca-statewater.gotpantheon.com/water-rights)
-
-This repository location:
-https://github.com/NewCaliforniaWaterAtlas/data-water-rights.git
-
-Contributors
-- Chach Sikes @chachasikes (Data research, documentation)
-- Ted Gratham UC Davis Department of Watershed Sciences (possibly)
 
 Work done as part of California Water Rights project, incubated by the Resource Renewal Institute http://rri.org with financial support from Patagonia. http://patagonia.com.
 
-If you are interested in helping to make water rights data better in California, please contact the New California Water Atlas at info@statewater.org.
+--------------------------------------------------------------------------------
+
+### What is the Water Rights data useful for?
+This data can be used for creating models of water usage in the state, for visualizing usage across the states, for creating more maps and visualizations of water rights and usage in the state. Similiarly, we hope that our process of working to clean up and make datasets friendly for re-presenting on the web, we hope this process to be something we can inspire others to take on for other important datasets.
+
+#### Sample applications
+California Water Rights interactive: http://ca.statewater.org/water-rights
+Launched April 2013. Update planned for August 2013.
+
+### Supplementary Datasets
+These datasets help tell the story of water rights.
+* Unimpaired flows
+* Fully Appropriated Streams
+* Stream Gauges (USGS (machine readable) 400 sensors & CDEC (NOT machine-readable) 400 sensors)
+* National Hydrography Dataset
+* Cropscape
+* Landsat
+* Others?
+
+--------------------------------------------------------------------------------
+## Fields
+
+
+Field Template:
+### machine_readable_name | Human Readable Field Name
+* Description: What the field is for
+* Definition: Technical definition
+* Format: string, machine-readable (alphanumeric, no spaces, etc), Integer, etc.
+* Examples: Samples, along with the syntax format of the fields {{description}}_{{number}}  (ignore the braces {{}} )
+* Notes: Notes about this field, used for complex fields
+* Proposed changes: Ideas about ways to better represent the data in future versions.
+* Values: some of the fields have specific kinds of values that have important meaning (ex. water right status) - we will note where there is a list of the values and their definitions.
+
+### Priority of fields
+* Unique Identifiers
+* Basic Fields (Name, geographic location, face value amount, diversion type (storage, diversion))
+* Amounts of water (formats -* cfs, afy)
+* Holder information (billing)
+* Location information (watershed)
+* Relationship to other water rights (pod_id)
+* Dates (time of first use) -* how legal is that information? applied, received * revoked
+* @TODO timeframe? months of use
+* Data from Statements of Diversion (use code, conservation methods, monthly breakdown of use (different numbers), description)
+* @TODO Add description of Permits, need sample data
+
+### About this fields
+
+* We are filling in fields by priority. There are about 200 possible fields - so it will be a lot of work to do them all, so we will focus on the most important ones, and can update the more obvious ones (such as "billing address") when we have time, or if there is important information to know about those fields.
+* Fields are compiled from ArcGIS & eWRIMS & a exported database dump of California records (Winter 2012) - this is why there are duplicates
+
+
+### Sample Records
+These are examples of the data we are compiling
+@TODO Add samples
+* GIS data export from SWRCB
+* XLS record for one Water Right Application
+* Statements of Diversion
+* License (?) (digital & pdfs)
+* Permit (?) (digital & pdfs)
+* Photos of records not yet digitized
+
+
+----------------------------------------------------------
+
+## Working Definitions & Our Questions
+We have been able to work with the SWRCB as well as to meet lawyers to learn more about water rights. It can be very technical, and calling things by the wrong name can stress out water rights holders if you are not careful. Water in California is contentious. We are learning ourselves.
+
+* Water Right  (well documented)
+* Appropriative Right (well documented)
+* Riparian Right  (well documented)
+* Groundwater Recordation (on website?)
+* Stream * how big is it? * measured in volume? How much?
+* River * how big is it?
+* Do springs have diversions? Are they supposed to? Ex. Arrowhead drinking water springs
+
+
+#### How is a Face Value Amount calculated?
+This is a conservative estimate of the total amount of water allowed. This is NOT usually how much gets allocated.
+
+#### How is the actual amount of water allocation determined?
+We don't know yet. We are trying to find out.
+
+#### How is water usage measured?
+Meters… what else?
+
+#### Read more about Water Rights
+The SWRCB maintains a FAQ page: http://www.waterboards.ca.gov/waterrights/board_info/faqs.shtml
+
+
+### Use Codes
+* Format: String
+* How water is used
+* Can be multiple values per water rights application? (???)
+* Values:
+Stockwatering
+Irrigation
+Municipal
+Industrial
+(There are about 15 of these @TODO get the list)
+
+
+### Water Rights Status
+This the the status of the water right in the state
+@TODO get the list
+
+### Water Rights Type
+@TODO get the list
+
+----------------------------------------------------------
+
+## Fields
+
+### id | ID
+* Description: Application POD ID, individual geographic location
+* Definition: This is the location of a point of diversion. Could be one of several PODs.
+* Format: alphanumeric, with underscores {{ApplicationID}}_{{POD value}}
+* Examples: C003105_01, C003105_02
+
+### name | Name
+* Description: Name of the "Holder Name", who holds the water right. Might not be the same as the Primary Owner.
+* Definition: The name of the holder, a person, organization or other entity.
+* Format: string, alphanumeric
+* Examples: JOE  ALBERTA
+
+### face_value_amount | Face Value Amount
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### source | Source
+* Description: Web url of the source of the data record
+* Definition: Should point to the URL about the original dataset
+* Format: url
+* Examples: http://gispublic.waterboards.ca.gov/
+* Proposed Changes
+  * Change field name to "data_source"
+  * Add extra field pointing to page that describes the data conversion, example this github repository.
+
+### pod_id | Point of Diversion ID
+* Duplicate fields? * "pod_number" * some compiled data are the same. Which one is better?
+* Description: 
+* Definition: 
+* Format: 
+* Examples: "01", "02"
+* Notes: A water right (based on its Application ID) can have several geographic locations. These are usually built
+water diversions that lead to different locations, such as storage facilities or an agriculture field.
+
+### water_right_id | Water Right ID
+* Description: A value from the eWRIMS system
+* Definition: 
+* Format: 
+* Examples: 
+* Notes: This field is necessary for correctly looking up the urls to statements of diversions and water reports. In the Mongo DB there may be some mismatches due to the way information had to be retrieved.
+
+### "application_id" : Application ID
+* Description: The unique record id for one individual water right with a specific face value amount.
+* Definition: 
+* Format: 
+* Examples: "C003105"
+
+### "direct_div_amount" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "diversion_storage_amount" : "2.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "diversion_acre_feet" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "place_id" : 663256,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "pod_status" : "Active"
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "face_value_amount" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "diversion_type" : "Direct Diversion",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "diversion_code_type" : "Diversion point",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "water_right_type" : "Stockpond",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "water_right_status" : "Certified",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "storage_type" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "pod_unit" : "Gallons per Day",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "first_name" : "JOE",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "holder_name" : "ALBERTA",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "organization_type" : "Individual",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "application_pod" : "C003105_01",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+###  "range_direction" : "E",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "township_direction" : "S",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "range_number" : "21",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "section_number" : "8",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "section_classifier" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "quarter" : "SW",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### quarter_quarter" : "SE"
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "meridian" : "Mount Diablo",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "northing" : "1912401",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "easting" : "6793775",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "sp_zone" : "3",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "latitude" : 37.24426798,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "longitude" : -119.70260375,  
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "township_number" : "8",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "trib_desc" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "location_method" : "DD_NE",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "source_name" : "UNST",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "moveable" : "N",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "has_opod" : "N",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "watershed" : "AHWAHNEE",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "county" : "Madera",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "well_number" : "   ",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "quad_map_name" : "O'NEALS",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "quad_map_num" : "JJ023 ",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "quad_map_min_ser" : "7.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "parcel_number" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "special_area" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "last_update_user_id" : 9,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "date_last_updated" : 1191046438000,
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "status" : "Certified",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "ewrims_db_id" : "13976",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+                
+### date_received" : ""
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "date_accepted" : "01/06/1978",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "source_alt" : "http://ciwqs.waterboards.ca.gov/",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "date_notice" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "protest" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "number_protests" : "0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "agent_name" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "agent_entity_type" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "primary_owner" : "JOE  ALBERTA",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "primary_owner_entity_type" : "Individual",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "face_value_units" : "Acre-feet per Year",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "max_dd_appl" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "max_dd_units" : "Gallons per Day",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "max_dd_ann" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples:
+
+### "max_storage" : "2.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+
+### "max_use_appl" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change: 
+
+### "year_first_use" : "1968.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "effective_from_date" : "09/15/1994",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "effective_to_date" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "entity_type" : "Individual",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+###  "name_type" : "Primary Owner",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "mailing_street_number" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "mailing_street_name" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "mailing_address_line2" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "mailing_city" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "mailing_state" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "mailing_country" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "mailing_zipcode" : null,
+
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "billing_street_number" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+###  "billing_street_name" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "billing_city" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "billing_state" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "billing_country" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "billing_zipcode" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "phone" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_code" : "Stockwatering",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_status_new" : "Migrated from old WRIMS data",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_population" : "0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_net_acreage" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_gross_acreage" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_dd_annual" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_dd_rate" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_dd_rate_units" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_storage_amount" : "2.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "use_seasons" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "direct_div_season_begin_date" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "direct_div_season_end_date" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "direct_div_season_div_rate" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### direct_div_season_div_rate_units" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "direct_div_season_annual_amount" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "storage_season_begin_date" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "storage_season_end_date" : null,
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "storage_season_amount" : "2.5",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "pod_max_dd" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "source_max_dd_unit" : "","
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "pod_max_storage" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "pod_max_storage" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "pod_max_storage" : "0.0",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "source_max_storage_unit" : "Gallons per Day",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "pod_gis_maintained_data" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "appl_id" : "C003105",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "podid" : "3912",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "permit_id" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "water_right_description" : ""
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "issue_date" : "1979-03-26",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "construction_completed_by" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "planned_project_completion_date" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "permit_terms" : "",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "term_id" : "0000021",
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### "version_number" : "2.0"
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### kind | Kind
+* Description: NWCA MongoDB specific field for storing object record
+* Definition: A description of the kind of record, used in each record.
+* Format: string
+* Examples: "right"
+* Proposed change: "water_right"
 
 
 ## Install Mongo Database
 --------------------------------------------------------------------------------
+Mongodump file located here: /data/dump/watertransfer
 
--- Mongodump file located here:
-https://github.com/nerdsfornature/watertransfers/tree/master/data/dump/watertransfer
-This is the current MongoDB for the Water Rights interactive. It is a database of geoJSON objects for each water rights record.
-Data was obtained from eWRIMS (downloading thousands of records), as well as pulling data from the entire ArcGIS server that powers the eWRIMS map.
-We are currently working with the State Water Resource Control board to document and clarify understanding of this complex & legally specific dataset.
+This is the current MongoDB for the Water Rights interactive. 
+* It is a database of geoJSON objects for each water rights record.
+* About 50K records
+* Filesize: About 139MB BSON (Mongo dump file format)
 
 @TODO Document how to import mongodump file into Mongo
-... something like this:
-mongoexport -d watertransfer -c database -f properties.application_pod,properties.name,properties.water_right_type,properties.max_dd_ann,properties.diversion_acre_feet,properties.organization_type,properties.use_dd_annual,properties.use_dd_rate,properties.use_dd_rate_units,properties.pod_status,properties.diversion_storage_amount,properties.direct_div_amount,properties.latitude,properties.longitude,properties.face_value_amount,properties.water_right_status,properties.issue_date,properties.use_code,properties.year_first_use --csv --out /Users/chachasikes/htdocs/watertransfers/data/export/4_13_2013_a.csv 
-@TODO Make copy of database and move into this repository
+@TODO Rename to waterrights -- watertransfers is relic of earlier project idea.
+
+
+## Install Mongo Database
+--------------------------------------------------------------------------------
+@TODO Sample Queries
+@TODO Sample Collections and indexes
+
+
 
 ## Export Mongo Database as CSV file
 --------------------------------------------------------------------------------
-@TODO Document
+@TODO Document this better.
+In general, the command is something like this:
+mongoexport -d watertransfer -c database -f properties.application_pod,properties.name,properties.water_right_type,properties.max_dd_ann,properties.diversion_acre_feet,properties.organization_type,properties.use_dd_annual,properties.use_dd_rate,properties.use_dd_rate_units,properties.pod_status,properties.diversion_storage_amount,properties.direct_div_amount,properties.latitude,properties.longitude,properties.face_value_amount,properties.water_right_status,properties.issue_date,properties.use_code,properties.year_first_use --csv --out /Users/chachasikes/htdocs/watertransfers/data/export/4_13_2013_a.csv 
+
 @TODO Make list of all of the fields that could be exported (there are lots.)
 
-## How to obtain the original files
+## Sample geoJSON Record Object of a Water Right
 --------------------------------------------------------------------------------
 
-### eWRIMS data
-@TODO Document
-Steps:
-
-
-Features
-
-@TODO Document ID's
-
-## References
-
----------------------------------------------------------------------------------
-
-Data
-Current database is MongoDB:
-
-@TODO Document all of these fields and where they came from.
 @TODO Add a few different examples: individual, state water project, municipal project, farm
+@TODO Proposed Change: move Statements of Diversion into their own record format.
+
 ```json
 {
         "id" : "C003105_01",
