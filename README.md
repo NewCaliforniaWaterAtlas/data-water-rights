@@ -75,20 +75,23 @@ To collaborate, we are putting the documentation, data & processing tools into G
 
 #### Workgroup / Team
 
+##### People
 * Chacha Sikes (New California Water Atlas)
 * Ted Grantham (UC Davis Department of Watershed Sciences)
-* Phil Crader (State Water Resources Control Board) -- advising us and answering our questions, helping us make sure this information is accurate.
+* Phil Crader (State Water Resources Control Board) He is advising us and answering our questions, helping us make sure this information is accurate.
 * Laci Videmsky (New California Water Atlas)
 
-* If you are interested in helping to make water rights data better in California, please contact the New California Water Atlas at info@statewater.org. 
-* We are also thinking about starting a Code for America Brigade for California State Water or other Natural Resources.
+##### Groups
+If you are interested in helping to make water rights data better in California, please contact the New California Water Atlas at info@statewater.org. 
 * Blog and file sharing: http://ca.statewater.org/water-rights
+* We are also thinking about starting a Code for America Brigade for California State Water or other Natural Resources.
 
 #### Sponsors
 New California Water Atlas: Making Water Understandable in California
 http://ca.statewater.org  @CAStateWater
 
 Work done as part of California Water Rights project, incubated by the Resource Renewal Institute http://rri.org with financial support from Patagonia. http://patagonia.com.
+
 
 --------------------------------------------------------------------------------
 
@@ -1021,7 +1024,6 @@ water diversions that lead to different locations, such as storage facilities or
 --------------------------------------------------------------------------------
 Mongodump file located here: 
 https://github.com/NewCaliforniaWaterAtlas/watertransfers/tree/master/data/dump/watertransfer
-
 
 This is the current MongoDB for the Water Rights interactive. 
 * It is a database of geoJSON objects for each water rights record.
