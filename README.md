@@ -1141,6 +1141,123 @@ water diversions that lead to different locations, such as storage facilities or
 
 --------------------------------------------------------------------------------
 
+## Fields - Statement of Diversion
+@TODO Move this to its own record type… will be easier to index and search.
+
+### {{year}} : 2009
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 
+* Proposed change:
+
+### {{year}}.usage | 2009
+* Description: From use code
+* Definition: 
+* Format: 
+* Examples: "Other"
+* Proposed change:
+
+### {{year}}.usage_quantity
+* Description: Has description of usage.
+* Definition: 
+* Format: 
+* Examples: "6054 Ac. Waterfowl Habitat, and Rice Straw Decomp. "
+* Proposed change:
+
+### {{year}}.diversion_unit
+* Description:  
+* Definition: 
+* Format: 
+* Examples: "Acre-Feet",
+* Proposed change:
+
+### {{year}}.diversion_unit
+* Description: 
+* Definition: 
+* Format: 
+* Examples: 6466
+* Proposed change:
+
+### {{year}}.total_diverted
+* Description: 
+* Definition: 
+* Format: 
+* Examples: "Other"
+* Proposed change:
+
+### {{year}}.total_used
+* Description: 
+* Definition: 
+* Format: 
+* Examples: "Other"
+* Proposed change:
+
+### {{year}}.diversion_total
+* Description: 
+* Definition: 
+* Format: 
+* Examples: "Other"
+* Proposed change:
+
+### {{year}}.amount_diverted
+* Description: 
+* Definition: 
+* Format: 
+* Examples: "Other"
+* Proposed change:  
+
+### {{year}}.amount_diverted.January
+* Description: 
+* Definition: 
+* Format: 
+* Examples: "1028"
+* Proposed change:    
+
+### {{year}}.amount_diverted.Total
+* Description: 
+* Definition: 
+* Format: 
+* Examples: "6466"
+* Proposed change: 
+
+### {{year}}.amount_used.January
+* Description: 
+* Definition: 
+* Format: 
+* Examples: "1028"
+* Proposed change:    
+
+### {{year}}.amount_used.Total
+* Description:
+* Definition: 
+* Format: 
+* Examples: "6466"
+* Proposed change: 
+
+### year
+* Description:
+* Definition: 
+* Format: 
+* Examples: "2009"
+* Proposed change:
+
+### ewrims_db_id
+* Description:
+* Definition: 
+* Format: 
+* Examples: "13976"
+* Proposed change:
+
+### ewrims_form_id
+* Description:
+* Definition: 
+* Format: 
+* Examples: "37516"
+* Proposed change:
+
+--------------------------------------------------------------------------------
+
 ## Fields - Unknown
 
 ### "version_number" : "2.0"
@@ -1149,6 +1266,12 @@ water diversions that lead to different locations, such as storage facilities or
 * Format: 
 * Examples: 
 * Proposed change:
+
+
+
+
+
+
 
 --------------------------------------------------------------------------------
 ** END of FIELDS ** 
