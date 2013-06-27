@@ -1,14 +1,12 @@
-## Water Rights Object Fields
+# Water Rights Object Fields
 -----------------------------
 
 Format:
-#### Name of Field
+### Name of Field
 - Description
 - Definition
-- Values & Definitions of each value
 - Format of Value
-
-
+- Examples
 
 
 ### Priority of fields
@@ -25,8 +23,19 @@ Format:
 - @TODO Add description of Permits, need sample data
 
 
+## Fields
 
+### id
+* Description: Application POD ID, individual geographic location
+* Definition: This is the location of a point of diversion. Could be one of several PODs.
+* Format: alphanumeric, with underscores {{ApplicationID}}_{{POD value}}
+* Examples: C003105_01, C003105_02
 
+### name
+* Description: Name of the "Holder Name", who holds the water right. Might not be the same as the Primary Owner.
+* Definition: The name of the holder, a person, organization or other entity.
+* Format: string, alphanumeric
+* Examples: JOE  ALBERTA
 
 
 
