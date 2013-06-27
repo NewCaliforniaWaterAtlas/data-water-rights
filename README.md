@@ -5,7 +5,7 @@ THIS IS A WORK IN PROGRESS. We will note when this document is final. 6/27/2013 
 
 --------------------------------------------------------------------------------
 
-The State Water Resource Control board maintains a dataset of water rights, statements of diversions and permits for water usages in the state of California. This includes appropriative, some riparian rights, some groundwater recordations (probably mostly in adjudicated basins), and possibly some listings of some tribal water rights. As you might expect, this does not include illegal diversions.
+The State Water Resource Control board maintains a dataset of Water Rights, Statements of Diversions, Permits, and Licenses for water use in the State of California. This includes appropriative water rights, some riparian water rights, some groundwater recordations (i.e. well readings, probably mostly in adjudicated basins), and possibly some listings of some tribal water rights. As you might expect, this does not include illegal diversions.
 
 We are working to create a dataset that is developer-friendly, accurate, up-to-date and well-documented. We believe this will help to speed communication and promote clarity and innovation about water usage in the State. We began in December 2012, and are doing more improvements in Summer 2013. Please watch this Github repository for updates. We would like to have a great & re-usable dataset worked out by January 2014.
 
@@ -62,6 +62,9 @@ We would like to update the dataset at least twice per year, and eventually mont
 
 ### How we are working
 As a small community of water-interested computer programmers, we are working to recommend what we need to known and access in order to use the valuable water rights data. 
+
+### Quality Assurance and Tests
+We are considering how we test and verify that our information is accurate.
 
 ### Github
 To collaborate, we are putting the documentation, data & processing tools into Github, a public & social place where programmers collaborate on code or data projects. 
