@@ -57,6 +57,8 @@ When there is not a recording or a diversion is illegal there is, as you might e
 ### How to Download the data
 We are working on a MongoDB database in geoJSON format that can be readily downloaded by developers, and are working to document the fields in the dataset, since water rights are complex and there is significant legal meanings.
 
+[Direct Download](https://www.dropbox.com/sh/8tz5vqo7y87ofd6/HNGgsRjdEK "Direct Download")
+
 ### Updates
 We would like to update the dataset at least twice per year, and eventually monthly or to have a real-time updated dataset available on http://data.ca.gov. 
 
