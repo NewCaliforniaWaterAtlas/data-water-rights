@@ -1,7 +1,7 @@
 # California Water Rights Dataset - Version 0.0.5
 --------------------------------------------------------------------------------
 
-THIS IS A WORK IN PROGRESS. We will note when this document is final. 6/27/2013 -- chach sikes
+THIS IS A WORK IN PROGRESS. We will note when this document is final. 04/28/2014 -- Laci Videmsky
 
 --------------------------------------------------------------------------------
 
@@ -72,7 +72,8 @@ We are considering how we test and verify that our information is accurate.
 To collaborate, we are putting the documentation, data & processing tools into Github, a public & social place where programmers collaborate on code or data projects. 
 * http://github.com/NewCaliforniaWaterAtlas/data-water-rights
 
-
+### License
+New California Water Atlas, & data adapted and shared by the [New California Water Atlas](https://www.dropbox.com/sh/drxi19pstribdsq/HrRgu6Gllm "New California Water Atlas") is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US "Creative Commons Attribution-ShareAlike 3.0 Unported License").
 --------------------------------------------------------------------------------
 
 #### Workgroup / Team
