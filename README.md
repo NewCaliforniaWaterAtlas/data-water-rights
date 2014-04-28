@@ -74,6 +74,7 @@ To collaborate, we are putting the documentation, data & processing tools into G
 
 ### License
 New California Water Atlas, and data adapted and shared by the [New California Water Atlas](https://www.dropbox.com/sh/drxi19pstribdsq/HrRgu6Gllm "New California Water Atlas") is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US "Creative Commons Attribution-ShareAlike 3.0 Unported License").
+
 --------------------------------------------------------------------------------
 
 #### Workgroup / Team
